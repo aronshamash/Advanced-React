@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import Nav from './Nav';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+Router.onRouteChangeStart = (url) => {
+  NProgress.start();
+}
+
+Router.onRouteChangeComplete = (url) => {
+  NProgress.done();
+}
+
+Router.onRouteChangeError = (url) => {
+  NProgress.done();
+}
 
 const Logo = styled.h1`
   padding: 2rem;
